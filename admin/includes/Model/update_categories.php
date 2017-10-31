@@ -24,7 +24,6 @@
                 if(!statement ){
                     die("Update Failed" . mysqli_error($connection));
                     }//if
-                    
                 }//if
                 ?>
     </div>

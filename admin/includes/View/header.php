@@ -1,5 +1,6 @@
 <?php ob_start(); ?>
-<?php include "../includes/Model/db_connection.php" ?>
+<?php include "../includes/Model/db_connection.php"; ?>
+<?php include "functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -11,10 +11,14 @@ foreach($dbparam as $key => $value){
 
 $connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_SCHEMA);
 
-/*if($connection){
+
+/*
+if($connection){
     
     echo "Connection Successful!";
     
-}*/
+}
+*/
+
 
 ?>
