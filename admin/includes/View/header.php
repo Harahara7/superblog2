@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php include "../includes/Model/db_connection.php" ?>
 <!DOCTYPE html>
 <html lang="en">
