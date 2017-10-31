@@ -44,14 +44,16 @@ include "includes/View/header.php"
                                     <input class="btn btn-primary" type="submit" name="submit" value="Add Category"/> 
                                 </div>
                             </form>
+                            
+                            <?php //Update Form!
+                            if(isset($_GET['edit'])){
+                                $cat_id_update = $_GET['edit'];
+                                include "includes/Model/update_categories.php";
+                            }//if
+                            ?>
+                            
                         </div> 
                         <div class="col-xs-6">
-                            <?php
-
-                            $query = "Select * From categories";
-                            $statement = mysqli_query($connection,$query);
-
-                            ?>
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -62,15 +64,28 @@ include "includes/View/header.php"
                                 <tbody>
                                     <tr>
                                     <?php
+                                    $query = "Select * From categories";
+                                    $statement = mysqli_query($connection,$query);
                                     while($row = mysqli_fetch_assoc($statement)){
                                     $cat_id = $row['cat_id'];
                                     $cat_title = $row['cat_title'];
                                     echo "<tr>";
                                     echo "<td>{$cat_id}</td>";
                                     echo "<td>{$cat_title}</td>";
+                                    echo "<td><a href='categories.php?delete={$cat_id}'>Remove</a></td>";
+                                    echo "<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";
+                                    // ?delete is the $_GET key below at (isset)
                                     echo "</tr>";
                                     }
-                                    ?>    
+                                    ?>
+                                    <?php
+                                    if(isset($_GET['delete'])){
+                                        $getCatId = $_GET['delete'];
+                                        $query = "DELETE FROM categories WHERE cat_id = {$getCatId}";
+                                        $statement = mysqli_query($connection, $query);
+                                        header("Location: categories.php");
+                                    }//if
+                                    ?>
                                     </tr>
                                 </tbody>
                             </table>
