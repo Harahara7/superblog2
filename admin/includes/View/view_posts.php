@@ -1,4 +1,4 @@
-<table class="table table-bordered table-hover table-responsive">
+<table class="table table-bordered table-hover ">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -28,15 +28,15 @@ while($row = mysqli_fetch_assoc($statement)){
     $post_date = $row['post_date'];
     
     echo "<tr>";
-    echo "<td>{$post_id}</td>";
-    echo "<td>{$post_author}</td>";
-    echo "<td>{$post_title}</td>";
-    echo "<td>{$post_category_id}</td>";
-    echo "<td>{$post_status}</td>";
-    echo "<td><img width='100' height='100' src='images/{$post_image} alt='image'></td>";
-    echo "<td>{$post_tags}</td>";
-    echo "<td>{$post_comment_count}</td>";
-    echo "<td>{$post_date}</td>";
+    echo "<td>$post_id</td>";
+    echo "<td>$post_author</td>";
+    echo "<td>$post_title</td>";
+    echo "<td>$post_category_id</td>";
+    echo "<td>$post_status</td>";
+    echo "<td><img width='100' height='100' src='../images/$post_image' ></td>";
+    echo "<td>$post_tags</td>";
+    echo "<td>$post_comment_count</td>";
+    echo "<td>$post_date</td>";
     echo "</tr>";
 }
                             ?>

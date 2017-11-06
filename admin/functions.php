@@ -50,10 +50,16 @@ global $connection;
     }//if
 }//deleteCategories
 
-function updateCategories(){
-    
-    
-    
-}//updateCategories
+function confirm_query($statement){
+	
+	global $connection;
+	
+		if(!$statement){
+		
+		echo "Query Failed! " . mysqli_error($connection);
+		
+	}
+	
+}//confirm_query
 
 ?>

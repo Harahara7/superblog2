@@ -34,7 +34,7 @@ include "includes/View/header.php"
             
                     switch($source){
                             
-                    case 34;
+                    case "add_posts";
 					include "includes/View/add_posts.php";			
                     echo "";
                     break;
