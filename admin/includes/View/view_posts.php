@@ -37,8 +37,20 @@ while($row = mysqli_fetch_assoc($statement)){
     echo "<td>$post_tags</td>";
     echo "<td>$post_comment_count</td>";
     echo "<td>$post_date</td>";
+	echo "<td><a href='posts.php?delete={$post_id}'>Delete?</a></td>";
     echo "</tr>";
 }
                             ?>
                         </tbody>   
                     </table>
+
+<?php
+if(isset($_GET['delete'])){
+	
+	$post_id = $_GET['delete'];
+	
+	$query = "Delete From posts Where post_id ={$post_id}";
+	$statement = mysqli_query($connection,$query);
+	
+}
+?>
