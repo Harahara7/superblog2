@@ -35,12 +35,14 @@ include "includes/View/header.php"
                     switch($source){
                             
                     case "add_posts";
-					include "includes/View/add_posts.php";			
-                    echo "";
+					include "includes/View/add_posts.php";	
                     break;
                             
-                    default:     
+					case "edit_posts";
+					include "includes/View/edit_posts.php";
+					break;
 							
+                    default:     
 					include "includes/View/view_posts.php";
                             
                     }//switch

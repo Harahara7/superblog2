@@ -8,8 +8,10 @@
                                 <th>Status</th>
                                 <th>Image</th>
                                 <th>Tags</th>
+								<th>Content</th>
                                 <th>Comments</th>
                                 <th>Date</th>
+								<th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +28,7 @@ while($row = mysqli_fetch_assoc($statement)){
     $post_tags = $row['post_tags'];
     $post_comment_count = $row['post_comment_count'];
     $post_date = $row['post_date'];
+	$post_content = $row['post_content'];
     
     echo "<tr>";
     echo "<td>$post_id</td>";
@@ -35,9 +38,17 @@ while($row = mysqli_fetch_assoc($statement)){
     echo "<td>$post_status</td>";
     echo "<td><img width='100' height='100' src='../images/$post_image' ></td>";
     echo "<td>$post_tags</td>";
+	echo "<td>$post_content</td>";
     echo "<td>$post_comment_count</td>";
     echo "<td>$post_date</td>";
-	echo "<td><a href='posts.php?delete={$post_id}'>Delete?</a></td>";
+	echo "<td>
+	<a class='btn btn-danger' 
+	href='posts.php?delete={$post_id}'>Delete?</a>
+	<hr>
+	<a class='btn btn-success'
+	href='posts.php?source=edit_posts&get_post_id={$post_id}'>Edit</a>
+	</td>";
+	echo "";
     echo "</tr>";
 }
                             ?>

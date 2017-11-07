@@ -1,6 +1,5 @@
 <?php
 if(isset($_POST['create_post'])){
-	
 	$post_title = $_POST['title'];
 	$post_author = $_POST['author'];
 	$post_category_id = $_POST['post_category_id'];
@@ -10,7 +9,7 @@ if(isset($_POST['create_post'])){
 	$post_tags = $_POST['post_tags'];
 	$post_content = $_POST['post_content'];
 	$post_date = date('d-m-y');
-	$post_comment_count = 4;
+	$post_comment_count = 0;
 	
 	move_uploaded_file($post_image_tmp, "../images/$post_image");
 	
@@ -67,6 +66,7 @@ if(isset($_POST['create_post'])){
 	<div class="form-group">
 		<label for="post_image">Post Image</label>
 		<input type="file" name="image" />
+		<label style="color: red">Cannot Exceed 8,3MB</label>
 	</div>
 	
 	<div class="form-group">
