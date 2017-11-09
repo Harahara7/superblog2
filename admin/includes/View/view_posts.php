@@ -1,21 +1,21 @@
 <table class="table table-bordered table-hover ">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Author</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Status</th>
-                                <th>Image</th>
-                                <th>Tags</th>
-								<th>Content</th>
-                                <th>Comments</th>
-                                <th>Date</th>
-								<th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-<?php 
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Author</th>
+			<th>Title</th>
+			<th>Category</th>
+			<th>Status</th>
+			<th>Image</th>
+			<th>Tags</th>
+			<th>Content</th>
+			<th>Comments</th>
+			<th>Date</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php 
 $query = "Select * From posts";
 $statement = mysqli_query($connection, $query);
 while($row = mysqli_fetch_assoc($statement)){
@@ -34,7 +34,13 @@ while($row = mysqli_fetch_assoc($statement)){
     echo "<td>$post_id</td>";
     echo "<td>$post_author</td>";
     echo "<td>$post_title</td>";
-    echo "<td>$post_category_id</td>";
+		$query = "SELECT * FROM categories WHERE cat_id = {$post_category_id}";
+		$statement2 = mysqli_query($connection, $query);
+		while($row = mysqli_fetch_assoc($statement2)){
+		$cat_id = $row['cat_id'];
+		$cat_title = $row['cat_title'];
+    	echo "<td>{$cat_title}</td>";
+		}//while
     echo "<td>$post_status</td>";
     echo "<td><img width='100' height='100' src='../images/$post_image' ></td>";
     echo "<td>$post_tags</td>";
@@ -52,8 +58,8 @@ while($row = mysqli_fetch_assoc($statement)){
     echo "</tr>";
 }
                             ?>
-                        </tbody>   
-                    </table>
+	</tbody>
+</table>
 
 <?php
 if(isset($_GET['delete'])){
